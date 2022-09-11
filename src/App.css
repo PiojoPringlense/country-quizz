@@ -1,38 +1,224 @@
 .App {
-  text-align: center;
+	width: 100vw;
+	min-height: 100vh;
+	background-image: url("../public/background.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	display: grid;
+	place-items: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.title {
+	color: #f2f2f2;
+	font-weight: 700;
+	font-size: 36px;
+	line-height: 54px;
+	margin: 0 0 10px 0;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.card {
+	position: relative;
+	background: #ffffff;
+	border-radius: 24px;
+	padding: 68px 32px;
+	width: 464px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.question {
+	font-weight: 700;
+	font-size: 24px;
+	line-height: 36px;
+	color: #2f527b;
 }
 
-.App-link {
-  color: #61dafb;
+.flag {
+	width: 84px;
+	margin-bottom: 28px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.question-img {
+	position: absolute;
+	right: 0;
+	top: -75px;
+}
+
+.answer-container {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	border: 2px solid rgba(96, 102, 208, 0.7);
+	border-radius: 12px;
+	color: rgba(96, 102, 208, 0.8);
+	font-weight: 500;
+	font-size: 18px;
+	margin-top: 31px;
+	padding: 10px 19px;
+	cursor: pointer;
+}
+
+.answer-container.correct {
+	background: #60bf88;
+	color: white;
+}
+
+.answer-container.wrong {
+	background: #ea8282;
+	color: white;
+}
+
+.answer-container:hover,
+.answer-container:focus {
+	border-color: #f9a826;
+	background: #f9a826;
+	color: white;
+}
+
+.answer-container.block-hover:hover,
+.answer-container.block-hover:focus {
+	border-color: rgba(96, 102, 208, 0.7);
+	background: transparent;
+	color: rgba(96, 102, 208, 0.8);
+}
+
+.answer-container.correct.block-hover:hover,
+.answer-container.correct.block-hover:focus {
+	border-color: rgba(96, 102, 208, 0.7);
+	background: #60bf88;
+	color: white;
+}
+
+.answer-container.wrong.block-hover:hover,
+.answer-container.wrong.block-hover:focus {
+	border-color: rgba(96, 102, 208, 0.7);
+	background: #ea8282;
+	color: white;
+}
+
+.answer-container > span {
+	font-weight: 500;
+	font-size: 24px;
+	margin-right: 46px;
+}
+
+.answer-icon {
+	width: 20px;
+	aspect-ratio: 1;
+	margin-left: auto;
+	display: none;
+}
+
+.answer-container.correct #correct {
+	display: block;
+}
+
+.answer-container.wrong #wrong {
+	display: block;
+}
+
+.next-btn {
+	display: block;
+	padding: 15px 37px;
+	background: #f9a826;
+	box-shadow: 0px 2px 4px rgba(252, 168, 47, 0.4);
+	border-radius: 12px;
+	border: none;
+	margin-left: auto;
+	margin-top: 24px;
+	margin-bottom: -36px;
+	color: white;
+	font-weight: 700;
+	font-size: 18px;
+	line-height: 27px;
+	cursor: pointer;
+}
+
+.next-btn:hover,
+.next-btn:focus {
+	border: 2px solid #1d355d;
+	background: transparent;
+	color: #1d355d;
+}
+
+.results-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	color: #1d355d;
+}
+
+.results-container svg {
+	margin-top: -19px;
+	margin-bottom: 79px;
+}
+
+.results-title {
+	font-weight: 700;
+	font-size: 48px;
+	line-height: 72px;
+}
+
+.results-text {
+	font-weight: 400;
+	font-size: 18px;
+	line-height: 27px;
+}
+
+.results-text span {
+	color: #6fcf97;
+	font-weight: 700;
+	font-size: 40px;
+	line-height: 54px;
+}
+
+.result-btn {
+	font: inherit;
+	padding: 18px 61px;
+	margin-top: 71px;
+	border: 2px solid #1d355d;
+	border-radius: 12px;
+	background: transparent;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 27px;
+	color: #1d355d;
+	cursor: pointer;
+}
+
+.result-btn:hover,
+.result-btn:focus {
+	border-color: #f9a826;
+	background: #f9a826;
+	color: white;
+}
+
+.loading-container {
+	width: 100%;
+	min-height: 500px;
+	display: grid;
+	place-items: center;
+}
+
+.loading-container svg {
+	width: 60%;
+}
+
+#asia,
+#america {
+	animation: colorContinents 2s infinite alternate;
+}
+
+@keyframes colorContinents {
+	0% {
+		fill: #f9a826;
+	}
+	100% {
+		fill: #3f3d56;
+	}
+}
+
+.loading-container h1 {
+	font-weight: 700;
+	font-size: 48px;
+	color: #1d355d;
 }
