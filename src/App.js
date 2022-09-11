@@ -163,6 +163,12 @@ function App() {
 					</>
 				)}
 			</div>
+			<p className="footer">
+				created by <span>PiojoPringlense</span> -{" "}
+				<a target="blank" href="https://devchallenges.io/">
+					devChallenges.io
+				</a>
+			</p>
 		</div>
 	);
 }
